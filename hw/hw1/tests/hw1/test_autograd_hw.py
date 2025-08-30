@@ -571,7 +571,9 @@ def test_exp_backward():
     gradient_check(ndl.exp, ndl.Tensor(1 + np.random.rand(5, 4))) 
 
 
+
 def test_ewisepow_backward():
+    gradient_check(ndl.relu, ndl.Tensor(np.random.randn(5, 4)))
     gradient_check(
         ndl.power, ndl.Tensor([[1.0, 2.0, 3.0]]), ndl.Tensor(np.ones((3,))*2)
     )
@@ -1059,6 +1061,7 @@ def test_nn_epoch_ndl():
         atol=1e-4,
     )
 
+test_nn_epoch_ndl()
 
 def submit_nn_epoch_ndl():
     X, y = parse_mnist(

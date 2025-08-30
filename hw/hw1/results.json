@@ -1,0 +1,13 @@
+{
+    "stdout_visibility": "visible",
+    "tests": [
+        {
+            "score": 0,
+            "status": "passed",
+            "max_score": 0,
+            "name": "test_nn_epoch_ndl",
+            "output": "",
+            "visibility": "visible"
+        }
+    ]
+}

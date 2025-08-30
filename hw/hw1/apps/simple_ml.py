@@ -10,7 +10,7 @@ sys.path.append("python/")
 import needle as ndl
 
 
-def parse_mnist(image_filesname, label_filename):
+def parse_mnist(image_filename, label_filename):
     """Read an images and labels file in MNIST format.  See this page:
     http://yann.lecun.com/exdb/mnist/ for a description of the file format.
 
@@ -33,7 +33,21 @@ def parse_mnist(image_filesname, label_filename):
                 for MNIST will contain the values 0-9.
     """
     ### BEGIN YOUR SOLUTION
-    raise NotImplementedError()
+    with gzip.open(image_filename,'rb') as im:
+        
+        
+        magic,n,row,col=struct.unpack('>IIII',im.read(16))
+        #print(n)
+        X=np.frombuffer(im.read(n*row*col),dtype=np.uint8).astype(np.float32).reshape((n,row*col))/255.0
+    
+    with gzip.open(label_filename,'rb') as lb:
+        
+        
+        magic,n=struct.unpack('>II',lb.read(8))
+        #print(n)
+        y=np.frombuffer(lb.read(n),dtype=np.uint8)
+
+    return (X,y)
     ### END YOUR SOLUTION
 
 
@@ -54,7 +68,8 @@ def softmax_loss(Z, y_one_hot):
         Average softmax loss over the sample. (ndl.Tensor[np.float32])
     """
     ### BEGIN YOUR SOLUTION
-    raise NotImplementedError()
+    batch=Z.shape[0]
+    return (ndl.log(ndl.exp(Z).sum(axes=(1,)))-(Z*y_one_hot).sum(axes=(1,))).sum()/batch
     ### END YOUR SOLUTION
 
 
@@ -83,7 +98,30 @@ def nn_epoch(X, y, W1, W2, lr=0.1, batch=100):
     """
 
     ### BEGIN YOUR SOLUTION
-    raise NotImplementedError()
+    iters=(X.shape[0]+batch-1)//batch
+    num_classes=W2.shape[1]
+    for i in range(iters):
+        
+        X_batch=ndl.Tensor(X[i*batch:min((i+1)*batch,X.shape[0]),:])
+        y_batch=y[i*batch:min((i+1)*batch,X.shape[0])]
+        y_onehot=ndl.Tensor(np.eye(num_classes)[y_batch])
+        #print(y_onehot.shape)
+        Z1=ndl.relu(ndl.matmul(X_batch,W1))
+        Z2=ndl.matmul(Z1,W2)
+        #print(Z2.shape)
+        loss=softmax_loss(Z2,y_onehot)
+        loss.backward()
+        W1-=lr*W1.grad
+        W2-=lr*W2.grad
+        W1=W1.detach()
+        W2=W2.detach()
+        W1.grad=0
+        W2.grad=0
+        print(str(i)+' of '+str(iters)+' batches ')
+        
+    return (W1,W2)
+
+        
     ### END YOUR SOLUTION
 
 
