@@ -1,0 +1,85 @@
+{
+    "stdout_visibility": "visible",
+    "tests": [
+        {
+            "score": 0,
+            "status": "passed",
+            "max_score": 0,
+            "name": "test_mlp_residual_block_num_params_1",
+            "output": "",
+            "visibility": "visible"
+        },
+        {
+            "score": 0,
+            "status": "passed",
+            "max_score": 0,
+            "name": "test_mlp_residual_block_num_params_2",
+            "output": "",
+            "visibility": "visible"
+        },
+        {
+            "score": 0,
+            "status": "passed",
+            "max_score": 0,
+            "name": "test_mlp_residual_block_forward_1",
+            "output": "",
+            "visibility": "visible"
+        },
+        {
+            "score": 0,
+            "status": "passed",
+            "max_score": 0,
+            "name": "test_mlp_resnet_num_params_1",
+            "output": "",
+            "visibility": "visible"
+        },
+        {
+            "score": 0,
+            "status": "passed",
+            "max_score": 0,
+            "name": "test_mlp_resnet_num_params_2",
+            "output": "",
+            "visibility": "visible"
+        },
+        {
+            "score": 0,
+            "status": "passed",
+            "max_score": 0,
+            "name": "test_mlp_resnet_forward_1",
+            "output": "",
+            "visibility": "visible"
+        },
+        {
+            "score": 0,
+            "status": "passed",
+            "max_score": 0,
+            "name": "test_mlp_resnet_forward_2",
+            "output": "",
+            "visibility": "visible"
+        },
+        {
+            "score": 0,
+            "status": "passed",
+            "max_score": 0,
+            "name": "test_mlp_train_epoch_1",
+            "output": "",
+            "visibility": "visible"
+        },
+        {
+            "score": 0,
+            "status": "passed",
+            "max_score": 0,
+            "name": "test_mlp_eval_epoch_1",
+            "output": "",
+            "visibility": "visible"
+        },
+        {
+            "score": 0,
+            "status": "passed",
+            "max_score": 0,
+            "name": "test_mlp_train_mnist_1",
+            "output": "",
+            "visibility": "visible"
+        }
+    ]
+}

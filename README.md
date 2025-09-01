@@ -3,6 +3,6 @@ Learning materials and assignments for [CMU DLSys Course](https://dlsyscourse.or
 
 Current progress:
 
-📘 Note(Lecture 2)
+📘 Note(Lecture 7)
 
-💻 Assignments(hw 0)
+💻 Assignments(hw 2)
