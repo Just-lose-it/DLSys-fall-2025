@@ -5,4 +5,4 @@ Current progress:
 
 📘 Note(Lecture 7)
 
-💻 Assignments(hw 2)
+💻 Assignments(hw 3)
